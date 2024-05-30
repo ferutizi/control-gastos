@@ -1,3 +1,5 @@
+import { NewExpense } from "../../../types"
+
 const API = 'http://localhost:3000/api'
 
 interface Expense {
@@ -8,24 +10,43 @@ interface Expense {
   value: number
 }
 
-export const createExpenseRequest = (expense: Expense) => {
-  fetch(`${API}/expenses`, {
-    method: 'POST',
-    body: JSON.stringify(expense),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+export const createExpense = (expense: NewExpense) => {
+  try {
+    fetch(`${API}/expenses`, {
+      method: 'POST',
+      body: JSON.stringify(expense),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  } catch(error) {
+    console.log("Error", error)
+    throw error
+  }
 }
 
-export const getExpensesRequest = async (): Promise<Expense[]> => {
+export const getExpenses = async (): Promise<Expense[]> => {
   try {
     const res = fetch(`${API}/expenses`, {
       method: 'GET',
     })
     const expenses: Promise<Expense[]> = (await res).json()
-    console.log(expenses)
-    return expenses
+
+    return expenses   
+  } catch (error) {
+    console.log("Error", error)
+    throw error
+  }
+}
+
+export const getExpenseById = async (id: Expense["id"]): Promise<Expense> => {
+  try {
+    const res = fetch(`${API}/expenses/${id}`, {
+      method: 'GET',
+    })
+    const expense: Promise<Expense> = (await res).json()
+
+    return expense 
   } catch (error) {
     console.log("Error", error)
     throw error
