@@ -5,9 +5,11 @@
 .icon-edit:hover {
   fill: blue;
   cursor: pointer;
+  transition: ease-in-out all 300ms;
 }
 
 .icon-trash:hover {
   fill: red;
   cursor: pointer;
+  transition: ease-in-out all 300ms;
 }
