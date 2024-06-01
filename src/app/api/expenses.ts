@@ -52,3 +52,14 @@ export const getExpenseById = async (id: Expense["id"]): Promise<Expense> => {
     throw error
   }
 }
+
+export const deleteExpense = async (id: Expense["id"]) => {
+  try {
+    fetch(`${API}/expenses/${id}`, {
+      method: 'DELETE',
+    })
+  } catch (error) {
+    console.log("Error", error)
+    throw error
+  }
+}
