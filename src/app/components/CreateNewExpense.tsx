@@ -13,7 +13,7 @@ export default function CreateNewExpense() {
   }
   return(
     <>
-      <button onClick={() => createExpense(newExpense)}>Agregar</button>
+      <button className="w-96 bg-violet-400 rounded-lg text-2xl rounded-b-3xl shadow-md text-white font-bold hover:bg-violet-500 transition-all ease-in-out duration-200" onClick={() => createExpense(newExpense)}>+</button>
     </>
   )
 }
