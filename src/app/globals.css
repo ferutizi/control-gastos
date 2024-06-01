@@ -13,3 +13,8 @@
   cursor: pointer;
   transition: ease-in-out all 300ms;
 }
+
+input,
+select {
+  outline: none;
+}
