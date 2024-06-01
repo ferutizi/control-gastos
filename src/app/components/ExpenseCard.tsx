@@ -1,4 +1,6 @@
 import { Expense, Section } from "../../../types"
+import IconEdit from "./IconEdit"
+import IconTrash from "./IconTrash"
 
 interface ExpenseCardProps {
   expense: Expense
@@ -23,7 +25,13 @@ export default function ExpenseCard({expense}: ExpenseCardProps) {
         <h2 className="break-words w-[70%]">{expense.detail}</h2>
         <p>$ {expense.value}</p>
       </div>
-      <p className="opacity-60">{expense.date.toString()}</p>
+      <div className="flex justify-between">
+        <p className="text-gray-500">{expense.date.toString()}</p>
+        <div className="flex gap-4">
+          <IconEdit />
+          <IconTrash />
+        </div>
+      </div>
     </article>
   )
 }
