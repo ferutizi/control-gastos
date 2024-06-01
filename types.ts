@@ -1,8 +1,8 @@
 export type NewExpense = {
-  date?: Date
   detail: string
-  section: string
+  date: string
   value: number
+  section: string
 } 
 
 export type Expense = {
@@ -13,4 +13,4 @@ export type Expense = {
   value: number
 } 
 
-export type Section = 'comida' | 'ropa' | 'transporte' | 'impuestos' | 'salud' | 'ocio';
+export type Section = 'comida' | 'ropa' | 'transporte' | 'impuestos' | 'salud' | 'ocio' | 'todo';
