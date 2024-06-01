@@ -9,6 +9,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen max-w-[900px] items-center flex-col justify-center gap-10 m-auto p-16">
       <div className="flex gap-2">
+        <SectionButton section="todo" />
         <SectionButton section="comida" />
         <SectionButton section="ropa" />
         <SectionButton section="transporte" />
