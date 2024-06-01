@@ -6,7 +6,8 @@ interface ExpenseCardProps {
   expense: Expense
 }
 
-const sections: { [key in Section]: string } = {
+export const sections: { [key in Section]: string } = {
+  "todo": "border-t-stone-800",
   "comida": 'border-t-green-500',
   "ropa": 'border-t-amber-500',
   "transporte": 'border-t-violet-500',
