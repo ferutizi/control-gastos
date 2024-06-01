@@ -5,18 +5,18 @@ import SectionButton from "./components/SectionButton";
 
 export default async function Home() {
   const expenses = await getExpenses()
-  console.log(expenses)
+
   return (
-    <main className="flex min-h-screen max-w-[900px] items-center flex-col justify-between m-auto p-16">
+    <main className="flex min-h-screen max-w-[900px] items-center flex-col justify-center gap-10 m-auto p-16">
       <CreateNewExpense></CreateNewExpense>
       <h1>Gastos</h1>
       <div className="flex gap-2">
-        <SectionButton section="Comida" />
-        <SectionButton section="Ropa" />
-        <SectionButton section="Transporte" />
-        <SectionButton section="Impuestos" />
-        <SectionButton section="Salud" />
-        <SectionButton section="Ocio" />
+        <SectionButton section="comida" />
+        <SectionButton section="ropa" />
+        <SectionButton section="transporte" />
+        <SectionButton section="impuestos" />
+        <SectionButton section="salud" />
+        <SectionButton section="ocio" />
       </div>
       {expenses.map(e => 
         <ExpenseCard key={e.id} expense={e} />
