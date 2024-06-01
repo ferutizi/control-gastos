@@ -8,8 +8,6 @@ export default async function Home() {
 
   return (
     <main className="flex min-h-screen max-w-[900px] items-center flex-col justify-center gap-10 m-auto p-16">
-      <CreateNewExpense></CreateNewExpense>
-      <h1>Gastos</h1>
       <div className="flex gap-2">
         <SectionButton section="comida" />
         <SectionButton section="ropa" />
@@ -18,6 +16,7 @@ export default async function Home() {
         <SectionButton section="salud" />
         <SectionButton section="ocio" />
       </div>
+      <CreateNewExpense />
       {expenses.map(e => 
         <ExpenseCard key={e.id} expense={e} />
       )}
