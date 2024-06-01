@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.icon-edit:hover {
+  fill: blue;
+  cursor: pointer;
+}
+
+.icon-trash:hover {
+  fill: red;
+  cursor: pointer;
+}
