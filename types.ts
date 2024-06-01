@@ -13,4 +13,4 @@ export type Expense = {
   value: number
 } 
 
-export type Section = 'Comida' | 'Ropa' | 'Transporte' | 'Impuestos' | 'Salud' | 'Ocio';
+export type Section = 'comida' | 'ropa' | 'transporte' | 'impuestos' | 'salud' | 'ocio';
