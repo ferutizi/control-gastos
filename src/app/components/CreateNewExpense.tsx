@@ -7,9 +7,9 @@ import { createExpense } from "../api/expenses"
 
 export default function CreateNewExpense() {
   const newExpense: NewExpense = {
-    detail: 'Empanadas',
-    section: 'Comida',
-    value: 8000
+    detail: 'Gasolina',
+    section: 'transporte',
+    value: 20000
   }
   return(
     <>
