@@ -29,7 +29,7 @@ export default function ExpenseCard({expense}: ExpenseCardProps) {
         <p className="text-gray-500">{expense.date.toString()}</p>
         <div className="flex gap-4">
           <IconEdit />
-          <IconTrash />
+          <IconTrash id={expense.id} />
         </div>
       </div>
     </article>
