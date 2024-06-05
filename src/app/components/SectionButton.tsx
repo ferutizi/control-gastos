@@ -1,6 +1,7 @@
 'use client'
 
 import { Section } from "../../../types";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 interface SectionButtonProps {
   section: Section;
@@ -17,10 +18,26 @@ const sections: { [key in Section]: string[] } = {
 }
 
 export default function SectionButton({section}: SectionButtonProps) {
+
+  const searchParams = useSearchParams()
+  const pathName = usePathname()
+  const { replace } = useRouter()
+
+  const handleSearchSection = (term: string) => {
+    const params = new URLSearchParams(searchParams)
+    if (term !== 'todo') {
+      params.set('section', term)
+    } else {
+      params.delete('section')
+    }
+
+    replace(`${pathName}?${params.toString()}`)
+  }
+
   const sectionClass = sections[section] || ''
 
   return(
-    <button className={`border rounded-lg px-1 min-w-24 h-8 ${sectionClass[0]} ${sectionClass[1]} hover:font-bold border-t-[3px]`}>
+    <button onClick={() => handleSearchSection(section)} className={`border rounded-lg px-1 min-w-24 h-8 ${sectionClass[0]} ${sectionClass[1]} hover:font-bold border-t-[3px]`}>
       {section}
     </button>
   )
