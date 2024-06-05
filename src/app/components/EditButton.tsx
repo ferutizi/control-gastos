@@ -56,31 +56,36 @@ export default function EditButton({expense}: EditButtonProps) {
     </button>
     {modal && 
       <>
-        <form onSubmit={handleSubmit} className={`flex flex-col justify-between w-[26rem] p-4 border ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg h-32`}>
-          <div className="flex justify-between">
-            <input name="detail" value={expenseForm.detail} onChange={(e) => handleChange(e)} required={true} placeholder="Detalle del gasto..." className="bg-slate-100 rounded-md pl-2 py-1" />
-            <label className="flex items-center gap-2">$ 
-              <input name="value" value={expenseForm.value} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 text-end w-28" placeholder="0.00"/>
-            </label>
+        <section className="z-20 bg-black bg-opacity-60 w-screen h-screen absolute top-0 left-0">
+          <div className='z-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+            <form onSubmit={handleSubmit} className={`flex flex-col relative justify-between w-80 lg:w-[26rem] lg:h-32 p-4 border items-center lg:items-stretch shadow-md gap-4 lg:gap-0 bg-slate-50 ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg`}>
+              <button type="button" onClick={() => setModal(false)} className="absolute -top-5 -right-5 font-bold text-white">X</button>
+              <div className="flex lg:flex-row flex-col gap-4 lg:gap-0 justify-between">
+                <input name="detail" value={expenseForm.detail} onChange={(e) => handleChange(e)} required={true} placeholder="Detalle del gasto..." className="bg-slate-100 rounded-md pl-2 py-1 w-full lg:w-auto" />
+                <label className="flex items-center gap-4">$ 
+                  <input name="value" value={expenseForm.value} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 text-end w-full lg:w-28" placeholder="0.00"/>
+                </label>
+              </div>
+              <div className="flex lg:flex-row flex-col gap-4 lg:gap-0 justify-between">
+                <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-full lg:w-36" placeholder="Fecha"/>
+                <select name="section" defaultValue={expenseForm.section} onChange={handleChange} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-full lg:w-auto">
+                  <option value="" hidden>Sección</option>
+                  <option value="comida">Comida</option>
+                  <option value="ropa">Ropa</option>
+                  <option value="transporte">Transporte</option>
+                  <option value="impuestos">Impuestos</option>
+                  <option value="salud">Salud</option>
+                  <option value="ocio">Ocio</option>
+                </select>
+                <button
+                  onClick={() => handleEditExpense}
+                  className={`border px-4 rounded-md ${btnStyles ? btnStyles : 'bg-stone-800'} text-white transition-all ease-out duration-200`}
+                  >Modificar
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="flex justify-between">
-            <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-36" placeholder="Fecha"/>
-            <select name="section" defaultValue={expenseForm.section} onChange={handleChange} required={true} className="bg-slate-100 rounded-md px-2 py-1">
-              <option value="" hidden>Sección</option>
-              <option value="comida">Comida</option>
-              <option value="ropa">Ropa</option>
-              <option value="transporte">Transporte</option>
-              <option value="impuestos">Impuestos</option>
-              <option value="salud">Salud</option>
-              <option value="ocio">Ocio</option>
-            </select>
-            <button
-              onClick={() => handleEditExpense}
-              className={`border px-4 rounded-md ${btnStyles ? btnStyles : 'bg-stone-800'} text-white transition-all ease-out duration-200`}
-              >Modificar
-            </button>
-          </div>
-        </form>
+        </section>
       </>
     }
     </>
