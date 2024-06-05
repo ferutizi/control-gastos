@@ -5,9 +5,11 @@ import { NewExpense, Section } from "../../../types"
 import { createExpense } from "../api/expenses"
 import { sections } from "./ExpenseCard"
 
+interface CreateNewExpenseProps {
+  sectionParam: string | undefined
+}
 
-
-export default function CreateNewExpense() {
+export default function CreateNewExpense({sectionParam}: CreateNewExpenseProps) {
   const today = new Date(Date.now())
   const day = today.getDate().toString().padStart(2, '0')
   const month = ((today.getMonth()) + 1).toString().padStart(2, '0')
@@ -18,7 +20,7 @@ export default function CreateNewExpense() {
     detail: '',
     value: 0,
     date: date,
-    section: ""
+    section: sectionParam || ""
   }
 
   const [expenseForm, setExpenseForm] = useState<NewExpense>(initialValue)
