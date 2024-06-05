@@ -10,9 +10,10 @@ interface Expense {
   value: number
 }
 
-export const createExpense = (expense: NewExpense) => {
+export const createExpense = async (expense: NewExpense) => {
   try {
-    fetch(`${API}/expenses`, {
+    await fetch(`${API}/expenses`, {
+      cache: 'no-store',
       method: 'POST',
       body: JSON.stringify(expense),
       headers: {
@@ -27,10 +28,11 @@ export const createExpense = (expense: NewExpense) => {
 
 export const getExpenses = async (): Promise<Expense[]> => {
   try {
-    const res = fetch(`${API}/expenses`, {
+    const res = await fetch(`${API}/expenses`, {
+      cache: 'no-store',
       method: 'GET',
     })
-    const expenses: Promise<Expense[]> = (await res).json()
+    const expenses: Promise<Expense[]> = res.json()
 
     return expenses   
   } catch (error) {
@@ -41,7 +43,8 @@ export const getExpenses = async (): Promise<Expense[]> => {
 
 export const getExpenseById = async (id: Expense["id"]): Promise<Expense> => {
   try {
-    const res = fetch(`${API}/expenses/${id}`, {
+    const res = await fetch(`${API}/expenses/${id}`, {
+      cache: 'no-store',
       method: 'GET',
     })
     const expense: Promise<Expense> = (await res).json()
@@ -53,9 +56,26 @@ export const getExpenseById = async (id: Expense["id"]): Promise<Expense> => {
   }
 }
 
+export const updateExpense = async (id: Expense["id"], expense: NewExpense) => {
+  try {
+    await fetch(`${API}/expenses/${id}`, {
+      cache: 'no-store',
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(expense)
+    })
+  } catch (error) {
+    console.log("Error", error)
+    throw error
+  }
+}
+
 export const deleteExpense = async (id: Expense["id"]) => {
   try {
-    fetch(`${API}/expenses/${id}`, {
+    await fetch(`${API}/expenses/${id}`, {
+      cache: 'no-store',
       method: 'DELETE',
     })
   } catch (error) {
