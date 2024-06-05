@@ -58,20 +58,20 @@ export default function CreateNewExpense() {
   return(
     <>
       <button
-        className={`w-96 ${modal ? 'bg-stone-400 hover:bg-stone-500' : 'bg-violet-400 hover:bg-violet-500'} text-2xl rounded-lg rounded-b-3xl shadow-md text-white font-bold transition-all ease-in-out duration-200`}
+        className={`w-80 lg:w-96 ${modal ? 'bg-stone-400 hover:bg-stone-500' : 'bg-violet-400 hover:bg-violet-500'} text-2xl rounded-lg rounded-b-3xl shadow-md text-white font-bold transition-all ease-in-out duration-200`}
         onClick={() => handleNewExpense()}
       >{modal ? 'Cancelar' : '+'}
       </button>
       {modal && 
         <>
-          <form onSubmit={handleSubmit} className={`flex flex-col justify-between w-[26rem] p-4 border ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg h-32`}>
-            <div className="flex justify-between">
+          <form onSubmit={handleSubmit} className={`flex flex-col justify-between items-center lg:items-stretch w-80 lg:w-[26rem] gap-2 lg:gap-0 p-4 border ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg h-min lg:h-32`}>
+            <div className="flex lg:flex-row flex-col gap-2 lg:gap-0 justify-between">
               <input name="detail" onChange={(e) => handleChange(e)} required={true} placeholder="Detalle del gasto..." className="bg-slate-100 rounded-md pl-2 py-1" />
               <label className="flex items-center gap-2">$ 
                 <input name="value" onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 text-end w-28" placeholder="0.00"/>
               </label>
             </div>
-            <div className="flex justify-between">
+            <div className="flex lg:flex-row flex-col gap-2 lg:gap-0 justify-between">
               <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-36" placeholder="Fecha"/>
               <select name="section" onChange={handleChange} required={true} className="bg-slate-100 rounded-md px-2 py-1">
                 <option value="" hidden>Sección</option>
