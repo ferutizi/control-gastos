@@ -34,6 +34,7 @@ export default function CreateNewExpense() {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     createExpense(expenseForm)
+    location.reload()
   }
 
   const sectionsBtn: { [key in Section]: string } = {
@@ -71,7 +72,7 @@ export default function CreateNewExpense() {
               </label>
             </div>
             <div className="flex justify-between">
-              <input type="date" value={expenseForm.date} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-36" placeholder="Fecha"/>
+              <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-36" placeholder="Fecha"/>
               <select name="section" onChange={handleChange} required={true} className="bg-slate-100 rounded-md px-2 py-1">
                 <option value="" hidden>Sección</option>
                 <option value="comida">Comida</option>
