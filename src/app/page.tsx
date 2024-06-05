@@ -18,7 +18,7 @@ export default async function Home() {
         <SectionButton section="ocio" />
       </div>
       <CreateNewExpense />
-      <section className="flex flex-col-reverse gap-8">
+      <section className="flex flex-col gap-8">
         {expenses.map(e => 
           <ExpenseCard key={e.id} expense={e} />
         )}
