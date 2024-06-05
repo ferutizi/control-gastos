@@ -64,15 +64,15 @@ export default function CreateNewExpense() {
       </button>
       {modal && 
         <>
-          <form onSubmit={handleSubmit} className={`flex flex-col justify-between items-center lg:items-stretch w-80 lg:w-[26rem] gap-2 lg:gap-0 p-4 border ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg h-min lg:h-32`}>
-            <div className="flex lg:flex-row flex-col gap-2 lg:gap-0 justify-between">
-              <input name="detail" onChange={(e) => handleChange(e)} required={true} placeholder="Detalle del gasto..." className="bg-slate-100 rounded-md pl-2 py-1" />
-              <label className="flex items-center gap-2">$ 
-                <input name="value" onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 text-end w-28" placeholder="0.00"/>
+          <form onSubmit={handleSubmit} className={`flex flex-col justify-between items-center lg:items-stretch w-80 lg:w-[26rem] gap-4 lg:gap-0 p-4 border ${sectionClass ? sectionClass : 'border-t-stone-800'} border-t-[3px] rounded-lg h-min lg:h-32`}>
+            <div className="flex lg:flex-row flex-col gap-4 lg:gap-0 justify-between">
+              <input name="detail" onChange={(e) => handleChange(e)} required={true} placeholder="Detalle del gasto..." className="bg-slate-100 rounded-md pl-2 py-1 w-full lg:w-auto" />
+              <label className="flex items-center gap-4">$ 
+                <input name="value" onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 text-end w-full lg:w-28" placeholder="0.00"/>
               </label>
             </div>
-            <div className="flex lg:flex-row flex-col gap-2 lg:gap-0 justify-between">
-              <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-36" placeholder="Fecha"/>
+            <div className="flex lg:flex-row flex-col gap-4 lg:gap-0 justify-between">
+              <input type="date" name="date" value={expenseForm.date} onChange={(e) => handleChange(e)} required={true} className="bg-slate-100 rounded-md px-2 py-1 w-full lg:w-36" placeholder="Fecha"/>
               <select name="section" onChange={handleChange} required={true} className="bg-slate-100 rounded-md px-2 py-1">
                 <option value="" hidden>Sección</option>
                 <option value="comida">Comida</option>
