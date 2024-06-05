@@ -31,7 +31,7 @@ export default function ExpenseCard({expense}: ExpenseCardProps) {
   const DynamicEditButton =  dynamic(async () => editButton, {ssr: false}) 
 
   return(
-    <article className={`flex flex-col justify-between w-[26rem] ${sectionClass} p-4 border border-t-[3px] rounded-lg h-32`}>
+    <article className={`flex flex-col justify-between w-80 lg:w-[26rem] ${sectionClass} p-4 border border-t-[3px] rounded-lg h-32`}>
       <div className="flex justify-between">
         <h2 className="break-words w-[70%]">{expense.detail}</h2>
         <p>$ {expense.value}</p>
