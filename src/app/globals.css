@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  background-color: rgb(251 252 253);
+}
+
 .icon-edit:hover {
   fill: blue;
   cursor: pointer;
